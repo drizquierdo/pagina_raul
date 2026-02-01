@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const target = document.querySelector(href);
             if (target) {
-                const offsetTop = target.offsetTop - 100; // Ajustar por navbar fijo y centrar título
+                const offsetTop = target.offsetTop - 90; // Ajustar por navbar fijo (80px) + margen (10px)
                 
                 window.scrollTo({
                     top: offsetTop,
