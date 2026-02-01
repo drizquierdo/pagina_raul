@@ -1143,21 +1143,23 @@ a:focus-visible {
   100% { transform: translateX(0); }
 }
 
-/* Mobile: Testimonios en columna con scroll vertical */
+/* Mobile: Mantener dos filas horizontales con movimiento */
 @media (max-width: 640px) {
-  .marquee-row {
-    flex-direction: column;
-    width: 100%;
-    animation: none !important;
-    padding: 0 var(--container-padding);
-  }
-  
   .testimonial-card {
-    width: 100%;
+    width: 260px; /* Un poco más pequeñas en móvil */
+    padding: var(--spacing-lg);
   }
   
   .marquee-container {
     gap: var(--spacing-lg);
+  }
+
+  .marquee-row.right {
+    animation-duration: 40s; /* Un poco más rápido en móvil por ser menos espacio */
+  }
+
+  .marquee-row.left {
+    animation-duration: 40s;
   }
 }
 
