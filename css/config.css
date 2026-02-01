@@ -1204,3 +1204,14 @@ a:focus-visible {
     font-size: 25px;
   }
 }
+
+/* ===== EFECTO HOVER PARA BOTÓN AGENDAR ===== */
+.btn-hover-effect {
+  transition: all 0.3s ease !important;
+}
+
+.btn-hover-effect:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
+}
