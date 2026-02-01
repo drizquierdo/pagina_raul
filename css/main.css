@@ -1,0 +1,469 @@
+/* ===== ACADEMIA METABOLIX - ESTILOS PRINCIPALES ===== */
+
+/* Importar todos los archivos CSS */
+@import url('./config.css');
+@import url('./layout.css');
+@import url('./components.css');
+
+/* ===== ESTILOS ESPECÍFICOS DE PÁGINAS ===== */
+
+/* Página de inicio */
+.home-hero {
+  background: var(--gradient-main);
+  position: relative;
+}
+
+.home-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.05"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+/* Sección de problemas */
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.problem-item {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.problem-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.problem-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--spacing-md);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  font-size: var(--font-size-xl);
+}
+
+/*
+ * Tarjetas flip para la sección "Los problemas que resuelvo".
+ * Cada tarjeta muestra el título en el frente y revela una breve explicación al voltearse.
+ * La animación funciona al pasar el mouse (hover) en escritorio y al recibir enfoque en dispositivos táctiles.
+ */
+.flip-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  transition: transform var(--transition-normal);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  background: var(--bg-white);
+  box-shadow: var(--shadow-md);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow var(--transition-normal);
+}
+
+.flip-card:hover .flip-card-front,
+.flip-card:focus-within .flip-card-front {
+  box-shadow: var(--shadow-lg);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Ajustes visuales para las tarjetas flip con emojis y textos más pequeños */
+.flip-card-front .emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+/* Texto del reverso: reducir tamaño y permitir saltos de línea para no desbordarse */
+.flip-card-back h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.flip-card-back p {
+  font-size: 0.875rem; /* ~14px */
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .flip-card-back p {
+    font-size: 0.8125rem; /* ~13px en móviles */
+  }
+}
+
+/* Sección de cursos */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+/* Sección de beneficios */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-2xl);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--bg-light);
+  border-radius: var(--border-radius-md);
+}
+
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-main);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  flex-shrink: 0;
+}
+
+/* Sección de pasos */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.step-item {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: var(--gradient-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0 auto var(--spacing-lg);
+}
+
+/* Página de curso */
+.course-hero {
+  background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+  padding: var(--spacing-5xl) 0;
+}
+
+.course-modules {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-2xl);
+}
+
+.module-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background: var(--bg-white);
+  border: 1px solid var(--bg-divider);
+  border-radius: var(--border-radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.module-item:hover {
+  border-color: var(--gradient-start);
+  box-shadow: var(--shadow-md);
+}
+
+.module-number {
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+}
+
+/* Página de checkout */
+.checkout-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+}
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.payment-method {
+  padding: var(--spacing-lg);
+  border: 2px solid var(--bg-divider);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.payment-method:hover,
+.payment-method.active {
+  border-color: var(--gradient-start);
+  background: rgba(136, 92, 253, 0.05);
+}
+
+.order-summary {
+  background: var(--bg-light);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Página de blog */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.blog-sidebar {
+  background: var(--bg-light);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  height: fit-content;
+}
+
+/* Artículo individual */
+.article-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.article-content h2,
+.article-content h3 {
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.article-content p {
+  margin-bottom: var(--spacing-lg);
+}
+
+.article-content ul,
+.article-content ol {
+  margin-bottom: var(--spacing-lg);
+  padding-left: var(--spacing-xl);
+}
+
+.article-content li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Estados de carga */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl);
+}
+
+.loading-text {
+  color: var(--text-secondary);
+}
+
+/* Estados de error */
+.error-message {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--color-error);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid var(--color-error);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Estados de éxito */
+.success-message {
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--color-success);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid var(--color-success);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Overlay y modales */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.9);
+  transition: transform var(--transition-normal);
+}
+
+.overlay.active .modal {
+  transform: scale(1);
+}
+
+/* Utilidades adicionales */
+.text-gradient {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient {
+  background: var(--gradient-main);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.select-none {
+  user-select: none;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-divider);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ===== Newsletter consent group ===== */
+/*
+    Para la casilla de consentimiento del newsletter utilizamos un contenedor flex llamado
+    `.consent-group` para alinear horizontalmente el checkbox y su texto.  El `gap` crea
+    separación entre el cuadro y la frase, y `flex-wrap` permite que el texto baje a
+    la línea siguiente en pantallas pequeñas.  Además, se ajustan colores y márgenes.
+*/
+.newsletter-form .consent-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  color: #374151;
+}
+.newsletter-form .consent-group input[type="checkbox"] {
+  margin: 0;
+}
+.newsletter-form .consent-group a {
+  color: #885CFD;
+  text-decoration: underline;
+}
+

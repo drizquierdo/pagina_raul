@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Bloquear páginas de pago y checkout
+Disallow: /pages/pago-*
+Disallow: /pages/gracias-*
+
+# Bloquear archivos de configuración
+Disallow: /assets/
+Disallow: /emails/
+Disallow: /docs/
+
+# Permitir acceso a imágenes
+Allow: /assets/img/
+
+# Sitemap
+Sitemap: https://academiametabolix.com/sitemap.xml
+
